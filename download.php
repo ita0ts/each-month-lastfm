@@ -1,23 +1,23 @@
-<?php
-// Recebe o corpo da requisição
-$data = json_decode(file_get_contents("php://input"), true);
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Página 2</title>
+</head>
+<body>
+    <img id="imagemExibida" alt="Imagem exibida" style="max-width: 100%; height: auto;" />
 
-if (!isset($data['image'])) {
-    http_response_code(400);
-    echo 'Imagem não recebida.';
-    exit;
-}
+    <script>
+        // Obtém a URL da imagem armazenada no localStorage
+        const conteudo = localStorage.getItem('conteudoDiv');
 
-// Extrai o conteúdo base64
-$imageData = $data['image'];
-$imageData = str_replace('data:image/png;base64,', '', $imageData);
-$imageData = str_replace(' ', '+', $imageData);
-
-$image = base64_decode($imageData);
-$filename = 'top_albums_' . time() . '.png';
-
-// Retorna o arquivo para download
-header('Content-Type: image/png');
-header('Content-Disposition: attachment; filename="' . $filename . '"');
-echo $image;
-exit;
+        // Verifica se há conteúdo e define a URL da imagem
+        const imgElement = document.getElementById('imagemExibida');
+        if (conteudo) {
+            imgElement.src = conteudo; // Define a URL da imagem
+        } else {
+            imgElement.alt = 'Nenhuma imagem encontrada.'; // Mensagem alternativa
+        }
+    </script>
+</body>
+</html>
