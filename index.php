@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Albums</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>My Top Albums</h1>
+
+    <div class="input-container">
+        <label for="lastfmuser">Usuário Last.fm:</label>
+        <input type="text" id="lastfmuser" placeholder="Digite o usuário Last.fm">
+      
+        <label for="yearSelect">Selecione o Ano:</label>
+        <input type="number" id="yearSelect" min="2000" max="2025" value="2025">
+      
+        <button onclick="submitToImage()">Ver Top Álbuns</button>
+        <button onclick="saveAsImage()">Salvar como imagem</button>
+    </div>
+    
+    <div id="content">
+        <div class="grid-container">
+            <!-- Month boxes -->
+            <div class="month-box" data-month="1"><span>January</span></div>
+            <div class="month-box" data-month="2"><span>February</span></div>
+            <div class="month-box" data-month="3"><span>March</span></div>
+            <div class="month-box" data-month="4"><span>April</span></div>
+            <div class="month-box" data-month="5"><span>May</span></div>
+            <div class="month-box" data-month="6"><span>June</span></div>
+            <div class="month-box" data-month="7"><span>July</span></div>
+            <div class="month-box" data-month="8"><span>August</span></div>
+            <div class="month-box" data-month="9"><span>September</span></div>
+            <div class="month-box" data-month="10"><span>October</span></div>
+            <div class="month-box" data-month="11"><span>November</span></div>
+            <div class="month-box" data-month="12"><span>December</span></div>
+        </div>
+    </div>
+
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
